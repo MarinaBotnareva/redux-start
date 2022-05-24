@@ -1,25 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import { connect } from 'react-redux';
 
-function App() {
+function App (props) {
+  console.log(props);
+
+  const [counter, setCounter] = useState({});
+
+  const actionIncrement = () => {
+    setCounter(s => s + 1);
+  }
+
+  const actionDecrement = () => {
+    setCounter(s => s - 1);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      Counter: {counter}
+      <div>
+        <button onClick={actionDecrement}>-</button>
+        <button onClick={actionIncrement}>+</button>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+/* 
+Consumer
+  {store => {
+    // mapStateToProps
+    const props = store.counter;
+    return <Component {...props} />;
+  }
+/Consumer
+ */
+
+const mapStateToProps = (store) => {
+  return { counter: store.counter };
+}
+
+// HOC
+const withStore = connect(mapStateToProps);
+
+export default withStore(App);
