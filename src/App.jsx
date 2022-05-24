@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
-import actionTypes from './store/actions/actionTypes';
+import { incrementAction, decreaseAction, resetAction } from './store/actions/actionCreators';
 
 function App (props) {
   console.log(props);
 
   const actionIncrement = () => {
-    props.increment();
+    props.dispatch(incrementAction());
   }
 
   const actionDecrement = () => {
-    props.decrement();
+    props.dispatch(decreaseAction());
   }
 
   const actionReset = () => {
-    props.reset();
+    props.dispatch(resetAction());
   }
 
   return (
@@ -43,16 +43,7 @@ const mapStateToProps = (store) => {
   return { counter: store.counter };
 }
 
-const mapDispatchToProps = (dispatch) => {
-
-  return {
-    increment: () => dispatch({ type: actionTypes.INCREMENT }),
-    decrement: () => dispatch({ type: actionTypes.DECREMENT }),
-    reset: () => dispatch({ type: actionTypes.RESET }),
-  }
-}
-
 // HOC
-const withStore = connect(mapStateToProps, mapDispatchToProps);
+const withStore = connect(mapStateToProps);
 
 export default withStore(App);
