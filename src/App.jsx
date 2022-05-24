@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 function App (props) {
   console.log(props);
 
-  const [counter, setCounter] = useState({});
+  const [counter, setCounter] = useState(0);
 
   const actionIncrement = () => {
     setCounter(s => s + 1);
