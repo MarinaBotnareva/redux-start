@@ -1,22 +1,18 @@
-import { useState } from 'react';
 import { connect } from 'react-redux';
 
 function App (props) {
-  console.log(props);
-
-  const [counter, setCounter] = useState(0);
 
   const actionIncrement = () => {
-    setCounter(s => s + 1);
+    props.dispatch({ type: 'increment' });
   }
 
   const actionDecrement = () => {
-    setCounter(s => s - 1);
+    props.dispatch({ type: 'decrement' });
   }
 
   return (
     <div>
-      Counter: {counter}
+      Counter: {props.counter.score}
       <div>
         <button onClick={actionDecrement}>-</button>
         <button onClick={actionIncrement}>+</button>
@@ -36,6 +32,7 @@ Consumer
  */
 
 const mapStateToProps = (store) => {
+  console.log(store);
   return { counter: store.counter };
 }
 
