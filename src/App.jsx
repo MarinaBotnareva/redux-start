@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
 import { incrementAction, decreaseAction, resetAction } from './store/actions/actionCreators';
+import Tasks from './components/Tasks';
+import RegisterForm from './components/RegisterForm';
 
 function App (props) {
   console.log(props);
@@ -24,7 +26,9 @@ function App (props) {
         <button onClick={actionIncrement}>+</button>
         <button onClick={actionReset}>Reset</button>
       </div>
-    </div>
+      <Tasks />
+      <RegisterForm/>
+      </div>
   )
 }
 
