@@ -66,7 +66,6 @@ function RegisterForm(props){
 
         <button
           type="submit"
-          disabled={props.inProgress}
           onClick={submit}>
           Sign in
         </button>
