@@ -14,8 +14,5 @@ export const resetAction = () => ({ type: actionTypes.RESET });
 /* addTaskAction creator */
 export const addTaskAction = (payload) => ({ type: actionTypes.ADD_TASK, payload });
 
-export const onChangeUsername = (value) => ({ type: actionTypes.ADD_USERNAME, value });
-export const onChangeEmail = (value) => ({ type: actionTypes.ADD_EMAIL, value });
-export const onChangePassword = (value) => ({ type: actionTypes.ADD_PASSWORD, value });
-export const onChangeConfPassword = (value) => ({ type: actionTypes.ADD_CONFPASSWORD, value });
+export const onChange = (key, value) => ({ type: actionTypes.ADD_USER, key, value });
 export const onSubmit = () => ({ type: actionTypes.SUBMITION });

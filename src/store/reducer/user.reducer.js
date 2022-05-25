@@ -9,30 +9,12 @@ const userState = {
 }
 
 export const userReducer = (state = userState, action) => {
-  if (action.type === actionTypes.ADD_USERNAME) {
+  if (action.type === actionTypes.ADD_USER) {
     return {
       ...state,
-     userName: action.value,
+     [action.key]: action.value,
     };
   }
-  if (action.type === actionTypes.ADD_EMAIL) {
-    return {
-      ...state,
-     email: action.value,
-    };
-  }
-    if (action.type === actionTypes.ADD_PASSWORD) {
-      return {
-        ...state,
-       password: action.value,
-      };
-    }
-    if (action.type === actionTypes.ADD_CONFPASSWORD) {
-      return {
-        ...state,
-       confPassword: action.value,
-      };
-    }
     if (action.type === actionTypes.SUBMITION) {
       return {
         ...state,

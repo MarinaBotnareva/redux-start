@@ -3,10 +3,7 @@ const actionTypes = {
     DECREMENT: 'decrement',
     RESET: 'reset',
     ADD_TASK: 'addTask',
-    ADD_USERNAME: 'addUser',
-    ADD_EMAIL: 'addEmail',
-    ADD_PASSWORD: 'addPassword',
-    ADD_CONFPASSWORD: 'addConfPassword',
+    ADD_USER: 'addUser',
     SUBMITION: 'submition'
 }
 

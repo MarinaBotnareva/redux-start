@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { onChangeEmail, onChangePassword, onChangeUsername, onChangeConfPassword, onSubmit } from '../../store/actions/actionCreators'
+import { onChange, onSubmit } from '../../store/actions/actionCreators'
 import { object, string, ref } from 'yup';
 
 const emailScheme = string().required().email();
@@ -13,10 +13,7 @@ const loginSchema = object({
 
 function RegisterForm(props){
   console.log(props)
-  const changeUsername = event => props.dispatch(onChangeUsername(event.target.value));
-  const changeEmail = event => props.dispatch(onChangeEmail(event.target.value));
-  const changePassword = event => props.dispatch(onChangePassword(event.target.value));
-  const changeConfPassword = event => props.dispatch(onChangeConfPassword(event.target.value));
+  const changeUser = event => props.dispatch(onChange(event.target.name, event.target.value));
   const submit = async event => {
       event.preventDefault();
       try {
@@ -41,27 +38,31 @@ function RegisterForm(props){
       <form>
         <input
           type="text"
+          name='userName'
           placeholder="Username"
           value={props.username}
-          onChange={changeUsername} />
+          onChange={changeUser} />
                   
         <input
           type="email"
+          name='email'
           placeholder="Email"
           value={props.email}
-          onChange={changeEmail} />
+          onChange={changeUser} />
 
         <input
           type="password"
+          name="password" 
           placeholder="Password"
           value={props.password}
-          onChange={changePassword} />
+          onChange={changeUser} />
 
         <input
           type="password"
+          name="confPassword" 
           placeholder="Confirm Password"
           value={props.confPassword}
-          onChange={changeConfPassword} />
+          onChange={changeUser} />
 
         <button
           type="submit"
